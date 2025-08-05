@@ -1,7 +1,7 @@
 # Privacy-Preserving Fall Risk Detection System
 
 ## Project Overview
-Build a computer vision system that detects high-risk movements and potential falls while preserving privacy through pose estimation (skeleton tracking) - directly mimicking Inspiren's AUGi system approach.
+Build a computer vision system that detects high-risk movements and potential falls while preserving privacy through pose estimation (skeleton tracking).
 
 ## Why This Project is Perfect for Inspiren:
 - **Privacy-first**: Uses pose estimation (skeleton) instead of identifying features
@@ -191,4 +191,3 @@ This project directly demonstrates your ability to:
 4. ✅ Build real-time processing pipelines
 5. ✅ Understand healthcare-specific ML challenges
 
-**Perfect for showing Inspiren you can hit the ground running on their computer vision challenges!**
