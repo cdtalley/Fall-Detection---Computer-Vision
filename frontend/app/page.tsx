@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 
 import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/HeroSection'
-import LiveDemo from '@/components/LiveDemo'
+import ModelPerformance from '@/components/LiveDemo'
 import Analytics from '@/components/Analytics'
 import DatasetInfo from '@/components/DatasetInfo'
 import AboutSection from '@/components/AboutSection'
@@ -29,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'demo', 'analytics', 'datasets', 'about']
+      const sections = ['home', 'model-performance', 'analytics', 'datasets', 'about']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -80,9 +80,9 @@ export default function Home() {
       <Navigation activeSection={activeSection} onSectionChange={scrollToSection} />
       
       <main>
-        <HeroSection onStartDemo={() => scrollToSection('demo')} />
+        <HeroSection onStartDemo={() => scrollToSection('model-performance')} />
         
-        <LiveDemo />
+        <ModelPerformance />
         
         <Analytics />
         

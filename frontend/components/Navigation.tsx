@@ -24,7 +24,7 @@ export default function Navigation({ activeSection, onSectionChange }: Navigatio
 
   const navItems = [
     { id: 'home', label: 'Home', href: '#home' },
-    { id: 'demo', label: 'Live Demo', href: '#demo' },
+    { id: 'model-performance', label: 'Model Performance', href: '#model-performance' },
     { id: 'analytics', label: 'Analytics', href: '#analytics' },
     { id: 'datasets', label: 'Datasets', href: '#datasets' },
     { id: 'about', label: 'About', href: '#about' },
