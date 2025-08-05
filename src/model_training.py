@@ -536,6 +536,7 @@ def generate_synthetic_data(num_samples: int = 1000) -> Tuple[pd.DataFrame, List
 
 
 def train_fall_detection_model(data_path: Optional[str] = None, 
+                              dataset_type: str = 'kaggle_fall',
                               model_type: str = 'lstm',
                               sequence_length: int = 30,
                               epochs: int = 100) -> FallDetectionModel:
@@ -543,7 +544,8 @@ def train_fall_detection_model(data_path: Optional[str] = None,
     Complete training pipeline for fall detection model.
     
     Args:
-        data_path: Path to training data (if None, generates synthetic data)
+        data_path: Path to training data (if None, uses dataset_type)
+        dataset_type: Type of dataset to use ('kaggle_fall', 'up_fall', 'ntu_rgbd')
         model_type: Type of model to train
         sequence_length: Length of sequences for training
         epochs: Number of training epochs
@@ -555,14 +557,27 @@ def train_fall_detection_model(data_path: Optional[str] = None,
     
     # Load or generate data
     if data_path:
-        # Load real data (implement based on your dataset)
+        # Load real data from CSV file
+        logger.info(f"Loading data from {data_path}")
         features_df = pd.read_csv(data_path)
         labels = features_df['label'].tolist()
         features_df = features_df.drop('label', axis=1)
     else:
-        # Generate synthetic data for demonstration
-        logger.info("Generating synthetic training data")
-        features_df, labels = generate_synthetic_data(1000)
+        # Load real dataset
+        try:
+            from dataset_integration import DatasetManager
+            logger.info(f"Loading {dataset_type} dataset")
+            manager = DatasetManager()
+            features_df, labels = manager.load_fall_detection_data(dataset_type)
+            
+            # Get dataset info
+            info = manager.get_dataset_info()
+            logger.info(f"Dataset info: {info['real_data_available']}")
+            
+        except ImportError:
+            # Fallback to synthetic data
+            logger.info("Dataset integration not available, generating synthetic training data")
+            features_df, labels = generate_synthetic_data(1000)
     
     # Initialize model
     model = FallDetectionModel(model_type=model_type, sequence_length=sequence_length)

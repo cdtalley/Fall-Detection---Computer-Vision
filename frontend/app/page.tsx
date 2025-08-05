@@ -9,6 +9,7 @@ import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/HeroSection'
 import LiveDemo from '@/components/LiveDemo'
 import Analytics from '@/components/Analytics'
+import DatasetInfo from '@/components/DatasetInfo'
 import AboutSection from '@/components/AboutSection'
 import Footer from '@/components/Footer'
 import ParticleBackground from '@/components/ParticleBackground'
@@ -28,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'demo', 'analytics', 'about']
+      const sections = ['home', 'demo', 'analytics', 'datasets', 'about']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -84,6 +85,10 @@ export default function Home() {
         <LiveDemo />
         
         <Analytics />
+        
+        <section id="datasets" className="py-20">
+          <DatasetInfo />
+        </section>
         
         <AboutSection />
       </main>
