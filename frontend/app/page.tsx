@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Shield, Activity, Zap, Eye, Brain, UserCheck, Lock, Hospital } from 'lucide-react'
+import { Shield, Activity, Zap, Eye, Brain, UserCheck, Lock, Building2 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 import Navigation from '@/components/Navigation'

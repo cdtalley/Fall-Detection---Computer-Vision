@@ -67,7 +67,7 @@ export default function Footer() {
                 // Company section
                 <div>
                   <div className="flex items-center space-x-2 mb-4">
-                    <section.icon className="w-8 h-8 text-primary-500" />
+                    {section.icon && <section.icon className="w-8 h-8 text-primary-500" />}
                     <span className="text-xl font-bold gradient-text">AI FallGuard</span>
                   </div>
                   <p className="text-dark-400 text-sm leading-relaxed mb-4">

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Brain, UserShield, Zap, Hospital, Shield, Lock, Activity, Target } from 'lucide-react'
+import { Brain, Shield, Zap, Building2, Lock, Activity, Target } from 'lucide-react'
 
 export default function AboutSection() {
   const features = [
@@ -12,7 +12,7 @@ export default function AboutSection() {
       color: 'text-primary-400',
     },
     {
-      icon: UserShield,
+      icon: Shield,
       title: 'Privacy-First Design',
       description: 'MediaPipe pose estimation creates anonymous skeleton views, ensuring no identifiable information is ever stored or processed.',
       color: 'text-healthcare-400',
@@ -24,7 +24,7 @@ export default function AboutSection() {
       color: 'text-warning-400',
     },
     {
-      icon: Hospital,
+      icon: Building2,
       title: 'Healthcare Optimized',
       description: 'Specifically designed for healthcare environments with HIPAA compliance, alert fatigue management, and clinical workflow integration.',
       color: 'text-danger-400',
