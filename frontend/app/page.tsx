@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Shield, Activity, Zap, Eye, Brain, UserCheck, Lock, Building2 } from 'lucide-react'
+import { Brain, Activity, Zap, Eye, Brain as BrainIcon, UserCheck, Lock, Building2 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 import Navigation from '@/components/Navigation'
@@ -64,9 +64,9 @@ export default function Home() {
           className="text-center"
         >
           <div className="relative">
-            <Shield className="w-16 h-16 text-primary-500 mx-auto mb-4 animate-pulse" />
-            <div className="text-2xl font-bold gradient-text">AI FallGuard</div>
-            <div className="text-dark-400 mt-2">Loading revolutionary fall detection system...</div>
+            <Brain className="w-16 h-16 text-primary-500 mx-auto mb-4 animate-pulse" />
+            <div className="text-2xl font-bold gradient-text">Privacy-Preserving Fall Detection</div>
+            <div className="text-dark-400 mt-2">Loading advanced computer vision system...</div>
           </div>
         </motion.div>
       </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Shield, Menu, X, Wifi, WifiOff } from 'lucide-react'
+import { Brain, Menu, X, Wifi, WifiOff } from 'lucide-react'
 
 interface NavigationProps {
   activeSection: string
@@ -23,11 +23,11 @@ export default function Navigation({ activeSection, onSectionChange }: Navigatio
   }, [])
 
   const navItems = [
-    { id: 'home', label: 'Home', href: '#home' },
-    { id: 'model-performance', label: 'Model Performance', href: '#model-performance' },
-    { id: 'analytics', label: 'Analytics', href: '#analytics' },
+    { id: 'home', label: 'Overview', href: '#home' },
+    { id: 'model-performance', label: 'Model Analysis', href: '#model-performance' },
+    { id: 'analytics', label: 'Performance Metrics', href: '#analytics' },
     { id: 'datasets', label: 'Datasets', href: '#datasets' },
-    { id: 'about', label: 'About', href: '#about' },
+    { id: 'about', label: 'Technical Details', href: '#about' },
   ]
 
   const handleNavClick = (sectionId: string) => {
@@ -49,8 +49,8 @@ export default function Navigation({ activeSection, onSectionChange }: Navigatio
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => handleNavClick('home')}
           >
-            <Shield className="w-8 h-8 text-primary-500" />
-            <span className="text-xl font-bold gradient-text">AI FallGuard</span>
+            <Brain className="w-8 h-8 text-primary-500" />
+            <span className="text-xl font-bold gradient-text">Privacy-Preserving Fall Detection</span>
           </motion.div>
 
           {/* Desktop Navigation */}

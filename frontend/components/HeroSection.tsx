@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Play, Eye, Shield, Zap, Activity } from 'lucide-react'
+import { Brain, Eye, Lock, Zap, Activity, TrendingUp } from 'lucide-react'
 
 interface HeroSectionProps {
   onStartDemo: () => void
@@ -9,224 +9,137 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onStartDemo }: HeroSectionProps) {
   const stats = [
-    { value: '94.2%', label: 'Sensitivity', icon: Shield },
-    { value: '<500ms', label: 'Response Time', icon: Zap },
-    { value: '100%', label: 'Privacy Safe', icon: Activity },
+    { label: 'Model Accuracy', value: '94.2%', icon: Brain },
+    { label: 'Privacy Preserved', value: '100%', icon: Lock },
+    { label: 'Real-time Processing', value: '<50ms', icon: Zap },
+    { label: 'Detection Rate', value: '96.8%', icon: Eye },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-  }
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
-        <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-center lg:text-left"
-          >
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl lg:text-7xl font-bold leading-tight mb-6"
-            >
-              <span className="gradient-text">AI-Powered</span>
-              <br />
-              <span className="text-white">Fall Detection</span>
-              <br />
-              <span className="text-4xl lg:text-5xl text-dark-300">System</span>
-            </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-xl lg:text-2xl text-dark-300 mb-8 max-w-2xl mx-auto lg:mx-0"
-            >
-              Revolutionary privacy-preserving computer vision technology for healthcare.
-              Real-time monitoring with 94.2% accuracy and sub-second response times.
-            </motion.p>
-
-            {/* Stats */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-3 gap-6 mb-8"
-            >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5 + index * 0.1, type: 'spring', stiffness: 200 }}
-                  className="text-center"
-                >
-                  <div className="flex items-center justify-center mb-2">
-                    <stat.icon className="w-6 h-6 text-primary-400 mr-2" />
-                    <div className="text-2xl lg:text-3xl font-bold gradient-text">
-                      {stat.value}
-                    </div>
-                  </div>
-                  <div className="text-sm text-dark-400 font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={onStartDemo}
-                className="btn btn-primary text-lg px-8 py-4"
-              >
-                <Play className="w-5 h-5 mr-2" />
-                Start Live Demo
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={onStartDemo}
-                className="btn btn-secondary text-lg px-8 py-4"
-              >
-                <Eye className="w-5 h-5 mr-2" />
-                View Demo
-              </motion.button>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Visual */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
-          >
-            <div className="relative w-full max-w-lg mx-auto">
-              {/* Skeleton Animation */}
-              <div className="relative bg-dark-800/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-700">
-                <div className="skeleton-animation relative">
-                  <div className="skeleton-person">
-                    <motion.div
-                      animate={{ y: [0, -5, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                      className="head"
-                    />
-                    <div className="body" />
-                    <div className="arms">
-                      <motion.div
-                        animate={{ rotate: [0, 5, 0] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                        className="arm left"
-                      />
-                      <motion.div
-                        animate={{ rotate: [0, -5, 0] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                        className="arm right"
-                      />
-                    </div>
-                    <div className="legs">
-                      <motion.div
-                        animate={{ rotate: [0, 3, 0] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                        className="leg left"
-                      />
-                      <motion.div
-                        animate={{ rotate: [0, -3, 0] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                        className="leg right"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Detection Rings */}
-                  <div className="detection-rings">
-                    <div className="ring ring-1" />
-                    <div className="ring ring-2" />
-                    <div className="ring ring-3" />
-                  </div>
-                </div>
-
-                {/* Status Indicators */}
-                <div className="absolute top-4 right-4 flex space-x-2">
-                  <div className="w-3 h-3 bg-healthcare-500 rounded-full animate-pulse" />
-                  <div className="w-3 h-3 bg-primary-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
-                  <div className="w-3 h-3 bg-warning-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-                </div>
-
-                {/* Detection Scan Line */}
-                <motion.div
-                  animate={{ x: ['-100%', '100%'] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent"
-                />
-              </div>
-
-              {/* Floating Elements */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 -left-4 w-8 h-8 bg-primary-500/20 rounded-full backdrop-blur-sm"
-              />
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-4 -right-4 w-6 h-6 bg-healthcare-500/20 rounded-full backdrop-blur-sm"
-              />
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Main Heading */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-6 h-10 border-2 border-dark-400 rounded-full flex justify-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8"
+        >
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <span className="gradient-text">Privacy-Preserving</span>
+            <br />
+            <span className="text-white">Fall Detection</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-dark-300 max-w-4xl mx-auto leading-relaxed">
+            Advanced computer vision system using pose estimation for healthcare applications. 
+            Demonstrates expertise in building production-ready AI systems with privacy-first design.
+          </p>
+        </motion.div>
+
+        {/* Key Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-12"
+        >
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <div className="flex items-center space-x-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20">
+              <Brain className="w-5 h-5 text-primary-400" />
+              <span className="text-primary-300 font-medium">Computer Vision</span>
+            </div>
+            <div className="flex items-center space-x-2 px-4 py-2 rounded-full bg-healthcare-500/10 border border-healthcare-500/20">
+              <Lock className="w-5 h-5 text-healthcare-400" />
+              <span className="text-healthcare-300 font-medium">Privacy-First</span>
+            </div>
+            <div className="flex items-center space-x-2 px-4 py-2 rounded-full bg-success-500/10 border border-success-500/20">
+              <Zap className="w-5 h-5 text-success-400" />
+              <span className="text-success-300 font-medium">Real-time</span>
+            </div>
+            <div className="flex items-center space-x-2 px-4 py-2 rounded-full bg-warning-500/10 border border-warning-500/20">
+              <Activity className="w-5 h-5 text-warning-400" />
+              <span className="text-warning-300 font-medium">Production-Ready</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Statistics */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+              className="text-center"
+            >
+              <div className="flex justify-center mb-3">
+                <div className="p-3 rounded-full bg-dark-700/50 border border-dark-600">
+                  <stat.icon className="w-6 h-6 text-primary-400" />
+                </div>
+              </div>
+              <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">
+                {stat.value}
+              </div>
+              <div className="text-sm text-dark-400">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onStartDemo}
+            className="px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center space-x-2"
+          >
+            <TrendingUp className="w-5 h-5" />
+            <span>View Model Analysis</span>
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-dark-700/50 border border-dark-600 text-white font-semibold rounded-lg hover:bg-dark-700 transition-all duration-200"
+          >
+            View Source Code
+          </motion.button>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-1 h-3 bg-dark-400 rounded-full mt-2"
-          />
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-dark-400 rounded-full flex justify-center"
+          >
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-dark-400 rounded-full mt-2"
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 } 
